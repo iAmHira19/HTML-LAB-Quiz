@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        .button{
+            padding:20px;
+            background-color: rgb(13, 149, 194);
+            border-radius: 5px;
+            color:white;
+        }
+        #btn2{
+            padding:10px;
+            background-color: brown;
+        }
+        .bar{
+             display:flex;
+            color:black;
+        }
+        .content{
+             border-radius: 30px;
+            align-items: center;
+            justify-content: center;
+            padding:20px;
+            
+
+        }
+        .item{
+            background-color: rgb(231, 229, 229,0.5);
+            width:100%;
+            color:black;
+            padding:20px;
+            display: flex;
+        }
+        .item img{
+            width:fit-content;
+            height: 30px;
+            justify-content: center;
+            margin-top: 20px;;
+        }
+        form{
+            width:50%;align-content: center;
+            padding:20px;
+        }
+        .inputlabel{
+            padding:2px;
+        }
+        .l1{
+            padding:2px;
+        }
+        .input{
+            border-radius: 5px;
+            
+        }
+    </style>
+</head>
+<script>
+    function validateinputs(){
+            let name= document.getElementById("name").value;
+            let address= document.getElementById("address").value;
+            let city= document.getElementById("city").value;
+            let postcode= document.getElementById("postcode").value;
+            let days= document.getElementsByName("days");
+            let persons= document.getElementsByName("person");
+            let service= document.getElementsByName("service");
+            let time= document.getElementById("time").value;
+     
+            
+            if(name==""||address==""==""||city==""||postcode==""||time=="")
+            alert("Please Enter the data, Fill empty fields")
+            if(postcode.length<6)
+            {
+                alert("Enter 6 digit postcode");
+            }
+            function checkAlphabets(input) {
+                for (const char of input) {
+                    if (!(char >= "a" && char <= "z") &&
+                        !(char >= "A" && char <= "Z")) {
+                            reg =false;
+                        return false;
+                    }
+                }
+                 
+                return true;
+            }
+            if (!checkAlphabets(name)){
+                document.getElementById("name").style.borderBottomColor="red";
+                alert("Name should be in alphabets");
+
+
+            }
+            if (!checkAlphabets(address)){
+                document.getElementById("name").style.borderBottomColor="red";
+                alert("Address should be in alphabets");};
+            if(postcode<0||checkAlphabets(postcode))
+            {
+                document.getElementById("name").style.borderBottomColor="red";
+                alert("PostCode should be Numeric only");
+            }
+            
+    }
+</script>
+<body>
+    <div class="header">
+       
+        <div class="navbar">
+            <table>
+                <th>
+                    <tr>
+                        <th><img src="icons/icons/facebook.png"></th>
+                    </tr>
+                    <tr>
+                        <th><a href="">Home</a></th>
+                        <th><a href="">Hotels</a></th>
+                        <th><a href="">Restaurants</a></th>
+                        <th><a href="">Tours</a></th>
+                        <th><a href="">Destinations</a></th>
+                        <th><a href="">Activities</a></th>
+                        <th><a href="">Contact</a></th>
+                        <th><a href="">Login</a></th>
+                     </tr>
+                </th>
+            </table>
+        </div>
+        <img src="body.jpg">
+        <div class="content">
+            <h1>Discover the most engaging places</h1>
+            <button class="button btn1">Discover on 3D globe</button>
+            <div class="bar">
+                <div class="item">
+                    <img src="icons/icons/location.png">
+                    <div class="text">
+                        <span>Location</span>
+                        <h3>Explore nearby</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="icons/icons/activities.png">
+                    <div class="text">
+                        <span>Location</span>
+                        <h3>Explore nearby</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="icons/icons/calendar.png">
+                    <div class="text">
+                        <span>Location</span>
+                        <h3>Explore nearby</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="icons/icons/guest.png">
+                    <div class="text">
+                        <span>Location</span>
+                        <h3>Explore nearby</h3>
+                    </div>
+                </div>
+                <div class="search">
+                    <img src="icons/icons/search.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro"></div>
+    <div class="form">
+        <form>
+            <div class="l1">
+                <label class="inputlabel" name="name" for="name" > Name:</label>
+                <input class="input" id="name" type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="l1">
+                <label class="inputlabel" name="address" for="address" > Address:</label>
+                <input class="input" id="address" type="text" placeholder="Enter your address" required>
+            </div>
+            <div class="l1">
+                <label class="inputlabel" name="city" for="city" > Town/City:</label>
+                <input class="input" id="city" type="text" placeholder="Enter your town/city" required>
+            </div>
+            <div class="l1">
+                <label class="inputlabel" name="postcode" for="postcode" > Postcode:</label>
+                <input class="input" id="postcode" type="number" placeholder="Enter your Postcode" required>
+            </div>
+            <div class="l1">
+                <label class="inputlabel" name="days" for="days" >No. Of Days:</label>
+                <div class="radio">
+                    <input class="input" id="2days" type="radio" value="2days"  name="days">
+                    <label class="inputlabel" name="2days" for="2days" >2 Days</label>
+                    <input class="input" id="4days" type="radio" value="4days"  name="days">
+                    <label class="inputlabel" name="4days" for="4days" >4 Days</label>
+                    <input class="input" id="7days" type="radio" value="7days"  name="days">
+                    <label class="inputlabel" name="7days" for="7days" >7 Days</label>
+                     
+                </div>
+            </div>
+
+            <div class="l1">
+                <label class="inputlabel" name="person" for="person" >Persons:</label>
+                <div class="radio">
+                    <input class="input" id="oneprsn" type="radio" value="one"  name="person">
+                    <label class="inputlabel" name="oneprsn" for="oneprsn" >One</label>
+                    <input class="input" id="twoprsn" type="radio" value="two"  name="person">
+                    <label class="inputlabel" name="twoprsn" for="twoprsn" >Two</label>
+                    <input class="input" id="threeprsn" type="radio" value="three"  name="person">
+                    <label class="inputlabel" name="threeprsn" for="threeprsn" >Three</label>
+                     
+                </div>
+            </div>
+
+            <div class="l1">
+                <label class="inputlabel" name="time" for="time" > Departure time:</label>
+                <input class="input" id="time" type="date" placeholder="--:-- --" required>
+            </div>
+            <div class="l1">
+                <label class="inputlabel" name="instruction" for="instruction" > Any instructions:</label>
+                <textarea class="input" id="instruction" type="text" placeholder="Enter any instructions" required></textarea>
+            </div>
+
+            <div class="l1">
+                <label class="inputlabel" name="service" for="service" >Service Type:</label>
+                <div class="radio">
+                    <input class="input" id="economy" type="checkbox" value="economy"  name="service">
+                    <label class="inputlabel" name="economy" for="economy" >Economy</label>
+                    <input class="input" id="exactive" type="checkbox" value="exactive"  name="service">
+                    <label class="inputlabel" name="exactive" for="exactive" >Exactive</label>
+                    <input class="input" id="business" type="checkbox" value="business"  name="service">
+                    <label class="inputlabel" name="business" for="business" >Business</label>
+                    <input class="input" id="golden" type="checkbox" value="golden"  name="service">
+                    <label class="inputlabel" name="golden" for="golden" >Golden</label>
+                     
+                </div>
+            </div>
+            <input id="btn2" class ="button"type="submit" placeholder="Submit Order" onclick="validateinputs()"> 
+        </form>
+    </div>
+    <div class="footer">
+        <table>
+            <tr>We always make our customers happy</tr>
+            <tr>
+                <th>About</th>
+                <th>Company</th>
+                <th>Support</th>
+            </tr>
+            <tr>
+                <td>About Us</td>
+                <td>Why 2rism</td>
+                <td>Menu</td>
+                 
+            </tr>
+            <tr>
+                <td>Features</td>
+                <td>News</td>
+                <td>Blog</td>
+                 
+            </tr><tr>
+                <td>Partner with us</td>
+                <td>Contact us</td>
+                <td>Feedback</td>
+                 
+            </tr>
+            <tr>
+                <th>Subscribe our newsletter</th>
+                <td><input type="email" placeholder="Enter your email"></td>
+            </tr>
+         </table>
+    </div>
+</body>
+</html>
